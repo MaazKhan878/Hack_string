@@ -1,0 +1,1 @@
+void replaceChar(char *name, char oldChar, char newChar);
