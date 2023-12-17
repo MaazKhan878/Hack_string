@@ -37,5 +37,12 @@ char * replaceCharCopy(char *s, char oldChar, char newChar){
         newString[i] = s[i];
     }
     newString[length] = '\0';
+    for(int i = 0; newString[i]!='\0'; i++){
+        if(newString[i] == oldChar){
+            newString[i] = newChar;
+        }
+    }
+    newString[length] = '\0';
+    return newString;
 
 }
