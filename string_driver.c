@@ -17,5 +17,10 @@ int main(){
     char *newString = replaceCharCopy(name, oldChar1, newChar1);
     if(newString != NULL){
         printf("2: Copy string with New character: %s\n",newString);
-    }   
+    } 
+    char string[] = "programer";
+    char c = 'r';
+    removeChar(string, c);
+    printf("The copy string as: %s\n",string);
+
 }
