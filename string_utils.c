@@ -65,3 +65,36 @@ void removeChar(char *s, char c){
     }
     *storeStr= '\0';
 }
+// Function: remove character from string and store in the same stringe by the help of pointer
+// then taccording the new string length make another string which copy the string
+char * removeCharCopy(char *s, char c){
+    // Validity check
+    if(s == NULL || c == '\0'){
+        printf("Invalide parameter list...\n");
+        return NULL;
+    }
+    // pointer to point the the different address value start from base 
+    char *storStr = s;
+    for(int i = 0; s[i] != '\0'; i++){
+        if(s[i] != c){
+            *storStr = s[i];
+            storStr++;
+        }
+    }
+    // add termination to new string
+    *storStr = '\0';
+    // find length of s
+    int length = strlen(s);
+    // dynamic memory allocation to str
+    char *newStr = (char *)malloc(length * sizeof(char));
+    if(newStr == NULL){
+        printf("Memory allocation Fieled...\n");
+        return NULL;
+    }
+    // LOOP: To copy the one string from another
+    for(int i = 0; i<length; i++){
+        newStr[i] = s[i];
+    }
+    newStr[length] = '\0';
+    return newStr; 
+}

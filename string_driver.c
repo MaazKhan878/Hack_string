@@ -18,9 +18,21 @@ int main(){
     if(newString != NULL){
         printf("2: Copy string with New character: %s\n",newString);
     } 
+    // string pass by refrence and remove character and store in the same string array
     char string[] = "programer";
     char c = 'r';
+    printf("3: Old string: %s\n", string);
     removeChar(string, c);
-    printf("The copy string as: %s\n",string);
+    printf("3: The new String with remove character: %s\n",string);
+    
+    // String passed by refrence and remove the char and store in the same character 
+    // make dynamic string which store the new str character and return to main
+    char nameStr[] = "MaazKhan Programer";
+    char remove = 'a';
+    printf("4: old string: %s\n",nameStr);
+    char *newNameStr = removeCharCopy(nameStr, remove);
+    if(newNameStr != NULL){
+        printf("4: String \" %s \"  without character \'%c\' \n",newNameStr, remove);
+    }
 
 }
