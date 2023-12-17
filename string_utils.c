@@ -98,3 +98,52 @@ char * removeCharCopy(char *s, char c){
     newStr[length] = '\0';
     return newStr; 
 }
+
+// Function: The function take a String and Split the string according number "n"
+char **lengthSplit(char *s, int n){
+    if(s == NULL || n<0){
+        printf("Invalide Parameter List..\n");
+        return NULL;
+    }
+    // Find the length
+    int length = strlen(s);
+    // How many row we can made
+    length = length/n;
+    // If the some charachter remain or length to check if remain add one row if not so not add them
+    int check = (length * n) - (length);
+    if(check > 0){
+        length = length + 1;
+    }
+    // 2D dynamic string to store the address of the address 
+    char **splitStr = (char **)malloc(length * sizeof(char*));
+    if(splitStr == NULL){
+        printf("Memory allocation failed...\n");
+        return NULL;
+    }
+    // allocate memory for column so we can say allocate memory for column
+    for(int i = 0; i<length; i++){
+        splitStr[i] = (char *)malloc(n * sizeof(char));
+        if(splitStr[i] == NULL){
+            printf("Memory allocation failed...\n");
+            return NULL;
+        }
+    }
+    //Loop: Split the string to column by the value of n;
+    for(int i = 0; i<length; i++){
+        for(int j = 0; j<n; j++){
+            splitStr[i][j] = s[j];
+        }
+        // add terminate to every column
+        splitStr[i][n] = '\0';
+        s += n;
+    }
+    // add Null to 2D string indicate there our string as terminate
+    splitStr[length] = NULL;
+    return splitStr;
+}
+//Function: Print 2D dimension string;
+void print2DStr(char **splitStr){
+    for(int i = 0; splitStr[i]!=NULL; i++){
+        printf("\"%s\" ",splitStr[i]);
+    }
+}

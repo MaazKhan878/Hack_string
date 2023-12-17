@@ -34,5 +34,13 @@ int main(){
     if(newNameStr != NULL){
         printf("4: String \" %s \"  without character \'%c\' \n",newNameStr, remove);
     }
-
+    // split the string to each 3 character / we can change the str and n value 
+    int n = 3;
+    char sentence[] = "Hello World, how are you?";
+    printf("5: The String: %s\n",sentence);
+    char **splitStr = lengthSplit(sentence, n);
+    if(splitStr != NULL){
+        printf("5: Splited to: ");
+        print2DStr(splitStr);
+    }
 }
