@@ -9,4 +9,6 @@ int main(){
 
     printf("Original String: %s\n", name);
     replaceChar(name, oldChar, newChar);
+    printf("New string: %s\n", name);
+    char *newString = replaceCharCopy(name, oldChar, newChar);
 }
