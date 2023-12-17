@@ -18,6 +18,24 @@ void replaceChar(char *name, char oldChar, char newChar) {
 
    
 }
+// Function: copy the string value to new string and return the string and also check with old character and new charachter
 char * replaceCharCopy(char *s, char oldChar, char newChar){
+    // check validation
+    if(s == NULL || oldChar == '\0' || newChar == '\0'){
+        printf("The invlaide Parameter list...\n");
+        return NULL;
+    }
+    int length = strlen(s);
+    char *newString = (char *)malloc(length * sizeof(char));
+    // check memory allocation located or not
+    if(newString == NULL){
+        printf("The memory was not allocated..\n");
+        return 0;
+    }
+    // LOOP: copy string to another
+    for(int i = 0; s[i]!='\0'; i++){
+        newString[i] = s[i];
+    }
+    newString[length] = '\0';
 
 }
